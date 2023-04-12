@@ -550,7 +550,7 @@ a:hover {
   width: 100%;
   z-index: 99;
   margin-bottom: 0;
-  padding: 10px 0;
+  padding:  0;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -2010,17 +2010,20 @@ blockquote {
 
 .dialog-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-  overflow: hidden;
+  max-height: 100%;
+  height: auto;
 }
+
+
 
 .close {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -2030,6 +2033,7 @@ blockquote {
   text-decoration: none;
   cursor: pointer;
 }
+
 
 
   
