@@ -119,47 +119,31 @@ End Sticky Navigation
 				<!-- /section title -->
 			</div> <!-- /end col-lg-12 -->
 		</div> <!-- end row -->
-		
-		<div class="row mx-auto filtr-container">
-			<div class="filtr-item col-lg-4 col-md-6" data-category="development">
-				<div class="portfolio-block">
-					<img src="images/portfolio/portfolio-1.jpg" alt="">
-					<div class="caption">
-						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="images/bt.png" data-lightbox="image-1">
-
-							<i class="tf-ion-android-search"></i>
-						</a>
-						<h4><a href="">蜜香紅茶</a></h4>
-						<p class="mb-0">全發酵製程，帶有濃郁的果香，蜜香，及多層次豐富口感。</p>
-					</div>
-				</div>
-			</div>
-			<div class="filtr-item col-lg-4 col-md-6" data-category="design">
-				<div class="portfolio-block">
-					<img src="images/portfolio/portfolio-2.jpg" alt="">
-					<div class="caption">
-						<a class="search-icon image-popup" data-effect="mfp-with-zoom" href="images/portfolio/portfolio-2.jpg"
-							data-lightbox="image-1">
-							<i class="tf-ion-android-search"></i>
-						</a>
-						<h4><a href="">Sound system</a></h4>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, nemo!</p>
-					</div>
-				</div>
-			</div>
-
-				<div class="filtr-item col-lg-4 col-md-6" data-category="design" >
-				<div class="member-photo">
-					<div class="member-photo">
-						<a href="index.html"><img class="img-fluid" src="images/portfolio/tea.png" alt="Iron man" width="45%"></a>
-
-					</div>
-				</div>
-			</div>
-		</div> <!-- End row -->
-	</div> <!-- End container -->			
+		  <img id="image1" src="https://www.creatrip.com/logo.svg" onclick="openDialog('dialog1')">
+		<img id="image2" src="https://img.shoplineapp.com/media/image_clips/5d59560f48717a003b06584e/large.JPG?1566135822" onclick="openDialog('dialog2')">
+  
+  <div id="dialog1" class="dialog">
+    <div class="dialog-content">
+      <span onclick="closeDialog('dialog1')" class="close">&times;</span>
+      <p>这是第一个对话框！</p>
+    </div>
+  </div>
+  
+  <div id="dialog2" class="dialog">
+    <div class="dialog-content">
+      <span onclick="closeDialog('dialog2')" class="close">&times;</span>
+      <p>这是第二个对话框！</p>
+		<img src="https://www.creatrip.com/logo.svg" alt="">
+		<p>这是第二个对话框！</p><br>
+		<p>这是第二个对话框！</p>
+		<p>这是第二个对话框！</p>
+    </div>
+  </div>
+  
+		<!-- End row -->
+	</div> <!-- End container -->	
 </section> <!-- End section -->
-	
+
 
 
 	<!-- 
@@ -183,6 +167,6 @@ End Sticky Navigation
 	<script src="plugins/wow/wow.min.js"></script>
 	<!-- Custom js -->
 	<script src="js/script.js"></script>
-	
+	<script src="js/dialog.js"></script>
 	</body>
 </html>

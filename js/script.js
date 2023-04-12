@@ -39,7 +39,6 @@
 		autoplaySpeed: 4000
 	});
 
-
 	/* ========================================================================= */
 	/*	Magnific popup
 	/* =========================================================================  */
@@ -150,8 +149,16 @@ close.addEventListener("click", function(){
 			}
 		}
 	});
+/*點擊文字框*/
+document.addEventListener('click',function(){
+    $('#ccc').hide();
+},true);
+     document.getElementById('bbb').addEventListener('click',function(){
+    $('#ccc').slideDown();
+});
+/*點擊文字框*/
 
-
+	
 })(jQuery);
 // End Jquery Function
 

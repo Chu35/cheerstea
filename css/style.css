@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-color: #353b43;
+  background-color: #d6c5a4;
   font-family: "Anaheim", sans-serif;
   color: #737f8a;
   -webkit-font-smoothing: antialiased;
@@ -38,18 +38,40 @@ dialog{
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.1);
 }
+/*點擊文字框*/
+    #bbb{
+        background-color: #ccc;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 15px; 
+        cursor: pointer;
+        margin: 10px 0;
+    }
+    #ccc{
+        display: none;
+        background-color: #ddd;
+        width: 300px;
+        height:100px;
+        line-height: 100px;
+        text-align: center;
+        border-radius: 5px; 
+    }
+
+
 /*=================================================================
   Basic Setup
 ==================================================================*/
 ::-moz-selection {
   /* Code for Firefox */
   color: #fff;
-  background: #57cbcc;
+  background: #e07d5e;
 }
 
 ::selection {
   color: #fff;
-  background: #57cbcc;
+  background: #e07d5e;
 }
 
 ol,
@@ -108,8 +130,8 @@ a:hover {
   border: 1px solid #4e595f;
 }
 .btn-transparent:hover, .btn-transparent:focus {
-  background-color: #57cbcc;
-  border-color: #57cbcc !important;
+  background-color: #e07d5e;
+  border-color: #e07d5e !important;
   color: #fff;
 }
 
@@ -161,7 +183,7 @@ a:hover {
   position: absolute;
   top: -4px;
   width: 50px;
-  background-color: #57cbcc;
+  background-color: #e07d5e;
 }
 
 .color {
@@ -187,11 +209,11 @@ a:hover {
 }
 
 .bg-one {
-  background-color: #353b43; /*life背景*/
+  background-color: #d6c5a4; /*life背景*/
 }
 
 .bg-dark {
-  background: #242930;
+  background: #8e7d5c;
 }
 
 .parallax-section {
@@ -237,11 +259,11 @@ a:hover {
 
 a:focus,
 a:hover {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 
 .btn-main {
-  background: #57cbcc;
+  background: #e07d5e;
   color: #fff;
   display: inline-block;
   font-size: 14px;
@@ -301,6 +323,7 @@ a:hover {
   background-size: cover;
 }
 
+/*加載器*/
 .preloader {
   background: #fff;
   height: 100%;
@@ -315,7 +338,6 @@ a:hover {
   align-items: center;
 }
 
-/*加載*/
 .sk-cube-grid {
   width: 40px;
   height: 40px;
@@ -324,7 +346,7 @@ a:hover {
 .sk-cube-grid .sk-cube {
   width: 33%;
   height: 33%;
-  background-color: #57cbcc;
+  background-color: #e07d5e;
   float: left;
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
@@ -374,7 +396,7 @@ a:hover {
   -webkit-animation-delay: 0.2s;
   animation-delay: 0.2s;
 }
-/*end加載*/
+
 
 @-webkit-keyframes sk-cubeGridScaleDelay {
   0%, 70%, 100% {
@@ -402,7 +424,7 @@ a:hover {
   color: #fff;
 }
 .title h2 span {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .title p {
   color: #666;
@@ -442,7 +464,7 @@ a:hover {
   font-family: "Quattrocento Sans", sans-serif;
 }
 .header-bradcrumb a:hover {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 
 .slick-slide {
@@ -492,7 +514,7 @@ a:hover {
   border-radius: 0 !important;
 }
 .pagination li a:focus, .pagination li a:hover, .pagination li a.active {
-  background: #57cbcc;
+  background: #e07d5e;
   color: #fff;
   box-shadow: none;
 }
@@ -524,7 +546,7 @@ a:hover {
   Navigation
 ==================================================================*/
 .navigation {
-  background-color: #1d2024;
+  background-color: #8e7d5c;
   width: 100%;
   z-index: 99;
   margin-bottom: 0;
@@ -540,20 +562,20 @@ a:hover {
 }
 .navigation .logo img {
   height: auto;
-  width: 45px;
+  width: 55px;
 }
 .navigation .navigation-menu li a.active {
-  color: #57cbcc !important;
+  color: #e07d5e !important; /*選單字顏色*/
 }
 .navigation .navigation-menu a {
   padding-left: 15px !important;
   padding-right: 15px !important;
   font-size: 16px;
-  color: #737f8a;
+  color: #fff;
 }
 .navigation .navigation-menu a:hover, .navigation .navigation-menu a:focus {
   background: transparent;
-  color: #57cbcc !important;
+  color: #e07d5e !important;
 }
 
 .navbar-toggle {
@@ -578,7 +600,8 @@ a:hover {
 }
 
 .hero-area {
-  background-size: cover;
+  background-size:cover;
+  max-width:100%;
   height: 100vh;
   position: relative;
   display: flex;
@@ -599,7 +622,7 @@ a:hover {
   line-height: 60px;
   font-size: 20px;
   margin-left: 3px;
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .hero-area .block h1 {
   font-size: 90px;
@@ -669,14 +692,14 @@ a:hover {
   About us section
 ==================================================================*/
 .about .block {
-  background: #242930;
+  background: #8e7d5c;
   padding: 30px;
   border-bottom: 2px solid transparent;
   transition: 0.5s all;
   margin-bottom: 20px;
 }
 .about .block:hover {
-  border-bottom: 2px solid #57cbcc;
+  border-bottom: 2px solid #e07d5e;
 }
 .about .block:hover .icon-box {
   transform: translateY(-10px);
@@ -738,7 +761,7 @@ a:hover {
 }
 .about-2 .content-block .media i {
   font-size: 30px;
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .about-2 .content-block .media h4 {
   font-size: 16px;
@@ -802,12 +825,12 @@ a:hover {
 .contact-form input:hover,
 .contact-form textarea:hover,
 #contact-submit:hover {
-  border-color: #57cbcc;
+  border-color: #e07d5e;
 }
 
 #contact-submit {
   border: 1px solid rgba(236, 239, 241, 0.07);
-  background: #57cbcc;
+  background: #e07d5e;
   padding: 12px 0;
   width: 100%;
   margin: 0;
@@ -895,7 +918,7 @@ a:hover {
   padding: 30px 0 20px;
 }
 .price-title h3 {
-  color: #57cbcc;
+  color: #e07d5e;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
@@ -904,7 +927,7 @@ a:hover {
   font-weight: 400;
 }
 .price-title .value {
-  color: #57cbcc;
+  color: #e07d5e;
   font-size: 30px;
 }
 
@@ -939,7 +962,7 @@ a:hover {
 .portfolio-filter button {
   border: none;
   outline: none;
-  border: 1px solid rgba(236, 239, 241, 0.07);
+  border: 1px solid rgba(236,239,241,0.40);
   background: transparent;
   display: inline-block;
   font-size: 16px;
@@ -949,8 +972,8 @@ a:hover {
   transition: 0.3s all;
 }
 .portfolio-filter button.active {
-  border: 1px solid #57cbcc;
-  color: #57cbcc;
+  border: 1px solid #e07d5e;
+  color: #e07d5e;
 }
 
 .portfolio-items-wrapper .mix {
@@ -1005,7 +1028,7 @@ a:hover {
   color: #555;
 }
 .portfolio-block .caption .search-icon {
-  background: #57cbcc;
+  background: #e07d5e;
   width: 45px;
   height: 45px;
   color: #fff;
@@ -1048,12 +1071,12 @@ a:hover {
 }
 .service-2 .service-item:hover i {
   background: #fff;
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .service-2 .service-item i {
   font-size: 30px;
   display: inline-block;
-  background: #57cbcc none repeat scroll 0 0;
+  background: #e07d5e none repeat scroll 0 0;
   border-radius: 30px;
   box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -1083,7 +1106,7 @@ a:hover {
   border-radius: 0;
 }
 .skill-bar .progress .progress-bar {
-  background: #57cbcc;
+  background: #e07d5e;
 }
 .skill-bar li:not(:last-child) {
   margin-bottom: 25px;
@@ -1124,7 +1147,7 @@ a:hover {
   }
 }
 .member-photo .mask {
-  background-color: rgba(87, 203, 204, 0.7);
+  background-color: rgba(224,125,94,0.64);
   position: absolute;
   text-align: center;
   height: 100%;
@@ -1154,7 +1177,7 @@ a:hover {
 }
 .member-photo .mask ul li a:hover {
   background-color: #fff;
-  color: #57cbcc;
+  color: #e07d5e;
   border: 1px solid transparent;
 }
 
@@ -1236,7 +1259,7 @@ a:hover {
 
 .owl-controls .owl-page.active span,
 .owl-controls .owl-page:hover span {
-  background-color: #57cbcc;
+  background-color: #e07d5e;
   border: 2px solid transparent;
 }
 
@@ -1327,7 +1350,7 @@ a:hover {
   padding: 0 20px 10px;
 }
 .post-meta a {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .post-meta > span {
   color: #666;
@@ -1381,7 +1404,7 @@ a:hover {
   color: #000;
 }
 .next-prev a:hover {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 .next-prev .prev-post i {
   margin-right: 10px;
@@ -1400,7 +1423,7 @@ a:hover {
   font-size: 16px;
 }
 .social-profile ul li a i:hover {
-  color: #57cbcc;
+  color: #e07d5e;
 }
 
 .comments-section {
@@ -1444,7 +1467,7 @@ a:hover {
   margin-bottom: 8px;
 }
 .comment-wrap .media .media-heading a {
-  color: #57cbcc;
+  color: #e07d5e;
   font-size: 13px;
 }
 .comment-wrap .media .comment-meta {
@@ -1465,7 +1488,7 @@ a:hover {
 }
 .comment-reply-form input:focus, .comment-reply-form textarea:focus {
   box-shadow: none;
-  border: 1px solid #57cbcc;
+  border: 1px solid #e07d5e;
 }
 .comment-reply-form textarea, .comment-reply-form .btn-main {
   height: auto;
@@ -1484,7 +1507,7 @@ a:hover {
   margin-bottom: 4px;
 }
 .social-icon ul li:hover a {
-  background-color: #57cbcc;
+  background-color: #e07d5e;
   transform: rotateY(0deg);
 }
 .social-icon ul li:hover a i {
@@ -1549,8 +1572,8 @@ a:hover {
 }
 
 #scrollUp:hover {
-  background-color: #57cbcc;
-  border: 1px solid #57cbcc;
+  background-color: #e07d5e;
+  border: 1px solid #e07d5e;
 }
 
 /*=================================================================
@@ -1971,4 +1994,43 @@ blockquote {
 .form-group:last-child input {
   margin: 0;
 }
+
+  /*knoeledge點擊彈跳*/
+.dialog {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  overflow: hidden;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+  
 /*# sourceMappingURL=style.css.map */
