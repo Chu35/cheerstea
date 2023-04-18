@@ -33,6 +33,7 @@
 	<link rel="stylesheet" href="plugins/slick-carousel/slick-theme.css">
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dialog.css">
 
 
 </head>
@@ -74,11 +75,46 @@ Sticky Navigation
 <div class="container">
   <div class="navbar-header w-100">
     <nav class="navbar navbar-expand-lg navbar-dark px-0">
+		
       <!-- logo -->
-      <a class="navbar-brand logo" href="index.html">
-        <img src="images/logo.png" alt="Website Logo"/>
-      </a>
+		<header>
+			<a class="navbar-brand logo" >
+				<img src="images/b.png" alt="Logo" onclick="showDialog()">
+			</a>
+		</header>
+		
+  <div id="myDialog" class="dialog1">
+    <div class="dialog1-content">
+		<div class="slideshow-container">
+			
+			<div class="mySlides1">
+				<div class="image-link-container"><a href="gt.html#life">
+					<img src="images/a.png" alt=""></a>
+				<p>tea1</p>
+			</div>
+			</div>
+			
+			<div class="mySlides1">
+				<div class="image-link-container">
+					<p>tea2</p><a href="rt.html#life">
+				<img src="images/b.png" alt=""  ></a>	
+			</div>
+			</div>
+					
+			<div class="mySlides1">
+				<p>tea3</p>
+				<img src="images/c.png" alt="" width="50%">
+			</div>
 
+			<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+			<span class="close1" onclick="closeDialog()">&times;</span>
+		</div>
+    </div>
+  </div>
+	
+		<!-- logo -->
+		
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar01"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -87,7 +123,7 @@ Sticky Navigation
       <div class="collapse navbar-collapse" id="navbar01">
         <ul class="navbar-nav navigation-menu ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#home">首頁</a>
+            <a class="nav-link" href="index.html">首頁</a>
           </li>
 		 <li class="nav-item">
             <a class="nav-link" href="#life">茶的一生</a>
@@ -126,50 +162,7 @@ End Sticky Navigation
 				<div class="title text-center wow fadeIn" data-wow-duration="1500ms">
 					<h2><span class="color">茶</span>的一生</h2>
 					<div class="border"></div>
-			<p></p>
-					<div style="text-align:center;">
-						<button id="test">開始測驗</button>
-                    <dialog id="infoModal">
-					<div id="question-1" class="container">
-						<h1>心理測驗</h1>
-							<!-- 問題1 -->
-							<p>問題1：你喜歡哪種顏色？</p>
-							<ul>
-							<li><input type="radio" name="q1" value="1">紅色</li>
-							<li><input type="radio" name="q1" value="2">藍色</li>
-							<li><input type="radio" name="q1" value="3">綠色</li>
-							</ul>
-						</div>
-						<div id="question-2" class="container">
-							<!-- 問題2 -->
-							<p>問題2：你最喜歡的季節是？</p>
-							<ul>
-							<li><input type="radio" name="q2" value="1">春天</li>
-							<li><input type="radio" name="q2" value="2">夏天</li>
-							<li><input type="radio" name="q2" value="3">秋天</li>
-							<li><input type="radio" name="q2" value="4">冬天</li>
-							</ul>
-						</div>
-						<div id="question-3" class="container">
-							<!-- 問題3 -->
-							<ul>
-							<p>問題3：你喜歡哪種動物？</p>
-							<li><input type="radio" name="q3" value="1">貓</li>
-							<li><input type="radio" name="q3" value="2">狗</li>
-							<li><input type="radio" name="q3" value="3">鳥</li>
-							</ul>
-						</div>
-						<div id="result" class="hidden">
-							<p id="result-text"></p>
-							<button id="close">close</button>
-							<button type="button" onclick="submitForm()">提交</button>
-							<button id="next-btn">Next</button>
-						</div>
-						
-						</dialog>
-					</div>
 				</div>
-				
 					<!-- /section title -->
 			</div>
 				
@@ -195,11 +188,12 @@ End Sticky Navigation
 			  </div>
 			</div>
 		</div>
+		
 			<!-- End About item -->
 				</div>
-			
 </section> <!-- End section -->
 	
+
 
 	<!-- 
 	Essential Scripts
@@ -223,7 +217,8 @@ End Sticky Navigation
 	<!-- Custom js -->
 	<script src="js/script.js"></script>
 	
-	<script  src="js/test.js"></script>
+	<script src="js/dialog2.js"></script>
+<script src="js/img.js"></script>
 
 	</body>
 </html>

@@ -1,67 +1,87 @@
-// 記錄答案的變數
-var answers = [];
+function calculateScore() {
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  var q2 = document.querySelector('input[name="q2"]:checked').value;
+  var q3 = document.querySelector('input[name="q3"]:checked').value;
 
-// 題目及選項
-var questions = [
-  {
-    question: "你喜歡旅行嗎？",
-    options: ["喜歡", "不喜歡"]
-  },
-  {
-    question: "你喜歡動物嗎？",
-    options: ["喜歡", "不喜歡"]
-  },
-  {
-    question: "你喜歡運動嗎？",
-    options: ["喜歡", "不喜歡"]
+  var score = parseInt(q1) + parseInt(q2) + parseInt(q3);
+
+  showResult(score);
+}
+
+function restartQuiz() {
+  var resultDiv = document.getElementById("result");
+
+  // 隱藏結果區塊
+  resultDiv.classList.add("hidden");
+
+  // 重設測驗表單
+  document.getElementById("quiz").reset();
+}
+
+function submitForm() {
+  // 獲取問題答案
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  var q2 = document.querySelector('input[name="q2"]:checked').value;
+  var q3 = document.querySelector('input[name="q3"]:checked').value;
+
+  // 計算測驗結果
+  var result = parseInt(q1) + parseInt(q2) + parseInt(q3);
+
+  // 根據測驗結果導向不同頁面
+  if (result <= 5) {
+    var choice = window.confirm("你的測驗結果是B，確定要繼續前往嗎？");
+  if (choice) {
+    window.location.href = "gt.html#life";
   }
-];
-
-// 取得 HTML 元素
-var questionElement = document.getElementById("question");
-var optionElements = document.getElementById("options");
-var resultElement = document.getElementById("result");
-
-// 顯示問題
-function showQuestion(index) {
-  var question = questions[index];
-  questionElement.textContent = (index + 1) + ". " + question.question;
-  
-  // 清空選項
-  optionElements.innerHTML = "";
-  
-  // 顯示選項
-  for (var i = 0; i < question.options.length; i++) {
-    var option = question.options[i];
-    var optionElement = document.createElement("button");
-    optionElement.textContent = option;
-    
-    // 綁定選項點擊事件
-    optionElement.addEventListener("click", function() {
-      answers.push(this.textContent);
-      if (index + 1 < questions.length) {
-        showQuestion(index + 1);
-      } else {
-        showResult();
-      }
-    });
-    
-    optionElements.appendChild(optionElement);
+ }
+  if (result >=6) {
+    var choice = window.confirm("你的測驗結果是B\n第二行文字" );
+    if (choice) {
+      window.location.href = "https://www.youtube.com/watch?v=BsU4o8Q_StY";
+    }
   }
 }
 
-// 顯示結果
-function showResult() {
-  questionElement.style.display = "none";
-  optionElements.style.display = "none";
-  
-  var result = "你的測驗結果是：";
-  for (var i = 0; i < answers.length; i++) {
-    result += "\n" + (i + 1) + ". " + questions[i].question + " " + answers[i];
+var questionIndex = 1; // start with question 1
+var numQuestions = 3; // total number of questions
+
+// hide all questions except the first one
+for (var i = 2; i <= numQuestions; i++) {
+  var questionElem = document.getElementById('question-' + i);
+  if (questionElem) {
+    questionElem.style.display = 'none';
   }
-  
-  resultElement.textContent = result;
 }
 
-// 啟動測驗
-showQuestion(0);
+// add click event listener to the next button
+var nextBtn = document.getElementById('next-btn');
+nextBtn.addEventListener('click', function() {
+  // hide current question
+  var currentQuestion = document.getElementById('question-' + questionIndex);
+  currentQuestion.style.display = 'none';
+  
+  // show next question
+  questionIndex++;
+  if (questionIndex <= numQuestions) {
+    var nextQuestion = document.getElementById('question-' + questionIndex);
+    nextQuestion.style.display = 'block';
+  }
+  
+  // hide next button if we're on the last question
+  if (questionIndex === numQuestions) {
+    nextBtn.style.display = 'none';
+  }
+});
+
+
+
+  //心理測驗按鈕
+	let btn=document.querySelector("#test");
+  let infoModal=document.querySelector("#infoModal");
+  let close=document.querySelector("#close");
+  btn.addEventListener("click", function(){
+  infoModal.showModal();
+})
+close.addEventListener("click", function(){
+  infoModal.close();
+})

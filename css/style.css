@@ -29,37 +29,6 @@ p {
   font-family: "Quattrocento Sans", sans-serif;
 }
 
-/*按鈕*/
-dialog{
-  border: none;
-  box-shadow: 0 2px 6px #ccc;
-  border-radius: 10px;
-}
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-/*點擊文字框*/
-    #bbb{
-        background-color: #ccc;
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-        border-radius: 15px; 
-        cursor: pointer;
-        margin: 10px 0;
-    }
-    #ccc{
-        display: none;
-        background-color: #ddd;
-        width: 300px;
-        height:100px;
-        line-height: 100px;
-        text-align: center;
-        border-radius: 5px; 
-    }
-
-
 /*=================================================================
   Basic Setup
 ==================================================================*/
@@ -438,7 +407,7 @@ a:hover {
 }
 
 .section-bg {
-  background: #292F36;
+  background: #D6C5A4;
 }
 
 .overly {
@@ -1116,8 +1085,9 @@ a:hover {
   Our Team
 ==================================================================*/
 .team-member {
-  background-color: #292F36;
+  background-color: #8E7D5C;
   margin: 15px 0;
+	color: antiquewhite;
 }
 .team-member:hover .mask {
   cursor: pointer;
@@ -1517,7 +1487,7 @@ a:hover {
   transform: rotateY(0deg);
 }
 .social-icon ul li a {
-  background-color: #26292e;
+  background-color: #D6C5A4;
   border: 1px solid transparent;
   display: block;
   height: 70px;
@@ -1532,7 +1502,7 @@ a:hover {
   }
 }
 .social-icon ul li a i {
-  color: #55606a;
+  color: #8E7D5C;
   display: inline-block;
   font-size: 32px;
   line-height: 70px;
@@ -2016,6 +1986,8 @@ blockquote {
   width: 50%;
   max-height: 100%;
   height: auto;
+	box-shadow: 0 1px 3px #ccc;
+	border-radius: 5px;
 }
 
 
@@ -2034,7 +2006,53 @@ blockquote {
   cursor: pointer;
 }
 
+/*心理測驗文字框*/
+dialog{
+	border: 1px solid #888;
+	box-shadow: 0 2px 6px #ccc;
+	border-radius: 10px;
+	width: 40%;
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+ 
+.dialog1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
 
+.dialog1-content {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
 
-  
+.close1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dialog1-content h2 {
+  margin-top: 0;
+}
+
+.dialog1.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*# sourceMappingURL=style.css.map */

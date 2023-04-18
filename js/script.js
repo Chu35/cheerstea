@@ -114,17 +114,6 @@
 		autoplaySpeed: 4000
 	});
 	
-	//按鈕
-	let btn=document.querySelector("#開始測驗");
-let infoModal=document.querySelector("#infoModal");
-let close=document.querySelector("#close");
-btn.addEventListener("click", function(){
-  infoModal.showModal();
-})
-close.addEventListener("click", function(){
-  infoModal.close();
-})
-
 	/* ========================================================================= */
 	/*	Smooth Scroll
 	/* ========================================================================= */
@@ -149,14 +138,7 @@ close.addEventListener("click", function(){
 			}
 		}
 	});
-/*點擊文字框*/
-document.addEventListener('click',function(){
-    $('#ccc').hide();
-},true);
-     document.getElementById('bbb').addEventListener('click',function(){
-    $('#ccc').slideDown();
-});
-/*點擊文字框*/
+
 
 	
 })(jQuery);
