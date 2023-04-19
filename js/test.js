@@ -42,6 +42,8 @@ function submitForm() {
   }
 }
 
+
+
 var questionIndex = 1; // start with question 1
 var numQuestions = 3; // total number of questions
 
