@@ -2,8 +2,9 @@ function calculateScore() {
   var q1 = document.querySelector('input[name="q1"]:checked').value;
   var q2 = document.querySelector('input[name="q2"]:checked').value;
   var q3 = document.querySelector('input[name="q3"]:checked').value;
+  var q4 = document.querySelector('input[name="q4"]:checked').value;
 
-  var score = parseInt(q1) + parseInt(q2) + parseInt(q3);
+  var score = parseInt(q1) + parseInt(q2) + parseInt(q3)+ parseInt(q4);
 
   showResult(score);
 }
@@ -23,9 +24,10 @@ function submitForm() {
   var q1 = document.querySelector('input[name="q1"]:checked').value;
   var q2 = document.querySelector('input[name="q2"]:checked').value;
   var q3 = document.querySelector('input[name="q3"]:checked').value;
+  var q4 = document.querySelector('input[name="q4"]:checked').value;
 
   // 計算測驗結果
-  var result = parseInt(q1) + parseInt(q2) + parseInt(q3);
+  var result = parseInt(q1) + parseInt(q2) + parseInt(q3)+ parseInt(q4);
 
   // 根據測驗結果導向不同頁面
   if (result <= 5) {
@@ -45,7 +47,7 @@ function submitForm() {
 
 
 var questionIndex = 1; // start with question 1
-var numQuestions = 3; // total number of questions
+var numQuestions = 4; // total number of questions
 
 // hide all questions except the first one
 for (var i = 2; i <= numQuestions; i++) {

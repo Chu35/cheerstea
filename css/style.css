@@ -96,7 +96,7 @@ a:hover {
 }
 
 .btn-transparent {
-  border: 1px solid #4e595f;
+  border: 1px solid #D6C5A4;
 }
 .btn-transparent:hover, .btn-transparent:focus {
   background-color: #e07d5e;
@@ -1272,7 +1272,7 @@ a:hover {
 }
 
 /*=================================================================
-  Latest Posts
+  Store
 ==================================================================*/
 .note {
   background-color: #292F36;
@@ -1280,8 +1280,9 @@ a:hover {
 }
 
 .post-block {
-  background-color: #292F36;
+  background-color: #8E7D5C;
   margin-bottom: 10px;
+	color: #D6C5A4
 }
 .post-block .content {
   padding: 20px;
@@ -1728,7 +1729,7 @@ aside.widget {
 }
 
 .widget-content .tab-content {
-  background-color: #2f383d;
+  background-color: #8E7D5C;
   padding: 20px;
 }
 
@@ -2016,7 +2017,7 @@ dialog{
 	border: 1px solid #888;
 	box-shadow: 0 2px 6px #ccc;
 	border-radius: 10px;
-	width: 40%;
+	width: 30%;
 }
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.1);
@@ -2035,11 +2036,11 @@ dialog::backdrop {
 .dialog1-content {
   background-color: #fff;
   padding: 10px;
-  margin: 10px;
   max-width: 500px;
   margin: 0 auto;
-  text-align: center;
+  text-align:center;
   position: relative;
+
 }
 
 .close1 {
@@ -2059,5 +2060,13 @@ dialog::backdrop {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.container li {
+  margin-bottom: 5px;
+}
+.container input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=style.css.map */
