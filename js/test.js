@@ -27,20 +27,24 @@ function submitForm() {
   var q4 = document.querySelector('input[name="q4"]:checked').value;
 
   // 計算測驗結果
-  var result = parseInt(q1) + parseInt(q2) + parseInt(q3)+ parseInt(q4);
+  var result = parseInt(q1) + parseInt(q2) + parseInt(q3) + parseInt(q4);
 
   // 根據測驗結果導向不同頁面
   if (result <= 5) {
     var choice = window.confirm("你的測驗結果是...，確定要繼續前往嗎？");
-  if (choice) {
-    window.location.href = "gt.html#life";
-  }
- }
-  if (result >=6) {
-    var choice = window.confirm("你的測驗結果是...\n第二行文字" );
+    if (choice) {
+      window.location.href = "gt.html#life";
+    }
+  } else if (result >= 6) {
+    var choice = window.confirm("你的測驗結果是...\n第二行文字");
     if (choice) {
       window.location.href = "rt.html#life";
     }
+  }
+
+  // 在最後一題顯示提交按鈕
+  if (questionIndex === numQuestions) {
+    document.getElementById("submit-btn").style.display = "block";
   }
 }
 
@@ -59,6 +63,8 @@ for (var i = 2; i <= numQuestions; i++) {
 
 // add click event listener to the next button
 var nextBtn = document.getElementById('next-btn');
+var submitBtn = document.getElementById('submit-btn'); // get the submit button
+
 nextBtn.addEventListener('click', function() {
   // hide current question
   var currentQuestion = document.getElementById('question-' + questionIndex);
@@ -74,9 +80,9 @@ nextBtn.addEventListener('click', function() {
   // hide next button if we're on the last question
   if (questionIndex === numQuestions) {
     nextBtn.style.display = 'none';
+    submitBtn.style.display = 'inline'; // show the submit button
   }
 });
-
 
 
   //心理測驗按鈕
