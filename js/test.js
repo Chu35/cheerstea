@@ -31,15 +31,15 @@ function submitForm() {
 
   // 根據測驗結果導向不同頁面
   if (result <= 5) {
-    var choice = window.confirm("你的測驗結果是B，確定要繼續前往嗎？");
+    var choice = window.confirm("你的測驗結果是...，確定要繼續前往嗎？");
   if (choice) {
     window.location.href = "gt.html#life";
   }
  }
   if (result >=6) {
-    var choice = window.confirm("你的測驗結果是B\n第二行文字" );
+    var choice = window.confirm("你的測驗結果是...\n第二行文字" );
     if (choice) {
-      window.location.href = "https://www.youtube.com/watch?v=BsU4o8Q_StY";
+      window.location.href = "rt.html#life";
     }
   }
 }

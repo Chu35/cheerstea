@@ -571,17 +571,12 @@ a:hover {
 .hero-area {
   background-size:cover;
   max-width:100%;
-  height: auto;
-	min-height: 40rem;
+  height: 100vh;
   position: relative;
-	background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  padding: 15rem 0;
-  background-attachment: scroll;
-	background-repeat: no-repeat;
 }
 .hero-area .block {
   text-align: center;
