@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
-
+<html>
+    <% String memberName = (String) session.getAttribute("memberName"); %>
 <head>
 	<meta charset="utf-8">
 	<title>甘吧茶ㄉㄟˊ</title>
@@ -14,9 +16,8 @@
 	<!-- Google Web Fonts 字型 -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
-		rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
+	rel="stylesheet"> -->
 
 	<!-- Icon Font Stylesheet -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -33,7 +34,6 @@
 	<!-- Template Stylesheet -->
 	<link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
 	<!-- Spinner Start -->
 	<div id="spinner" class="show position-fixed ">
@@ -45,11 +45,10 @@
 	<div class="container-fluid fixed-top px-0 wow fadeIn top-0" data-wow-delay="0.1s">
 		<div class="row gx-0 align-items-center d-none d-lg-flex"> </div>
 		<nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-4 wow fadeIn" data-wow-delay="0.1s">
-			<a class="navbar-brand logo" href="index.html">
-				<img src="img/logo.png" alt="Website Logo" width="70px" />
+			<a class="navbar-brand logo" href="index.jsp">
+				<img src="img/logo.png" alt="Website Logo" width="70px" height="auto"/>
 			</a>
-			
-			<a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+			<a href="index.jsp" class="navbar-brand ms-4 ms-lg-0">
 				<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
 			</a>
 			<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -58,7 +57,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="index.html#home" class="nav-item nav-link">首頁</a>
+					<a href="index.jsp#home" class="nav-item nav-link">首頁</a>
 					<div class="nav-item dropdown">
 						<a href="knowl.jsp" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
 							aria-expanded="true">知識調茶局</a>
@@ -68,14 +67,20 @@
 						</div>
 					</div>
 					<a href="fun.jsp" class="nav-item nav-link">茶遊此地</a>
-					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>           
+					<a href="contact.jsp" class="nav-item nav-link">關於我們</a>
 					<a href="store.jsp" class="nav-item nav-link">滴滴商城</a>
-					<div class="nav-item dropdown">
+						<div class="nav-item dropdown">
 						<div id="user-icon" class="nav-link dropdown-toggle"  data-bs-toggle="dropdown"><small
-								class="fa fa-user text-primary"></small></div>
+							class="fa fa-user text-primary"></small></div>
 						<div class="dropdown-menu border-light m-0">
-							<a href="login.html" class="dropdown-item">登入/註冊</a>
-							<a href="member.jsp" class="dropdown-item">會員中心</a>
+								<% if (memberName != null) { %>
+									<span class="dropdown-item disabled-text"><%= memberName %>, 你好</span>								<% } else { %>
+									<a class="dropdown-item" href="login.html">登入/註冊</a>
+								<% } %>
+								<a href="member.jsp" class="dropdown-item">會員中心</a>
+								<% if (memberName != null) { %>
+									<a class="dropdown-item" href="logout.jsp">登出</a>
+								<% }%>
 						</div>
 					</div>
 				</div>
@@ -83,31 +88,6 @@
 		</nav>
 	</div>
 	<!-- Navbar End -->
-
-	
-	<!-- Test
-	<div class="modal fade" id="exampleModaltest" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-	<div class="center">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <i type="button" id="closetest" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></i>
-			<button id="back" onclick="goBack()">&laquo; back</button>
-        </div>
-        <div class="modal-body">
-          <div class="container-xxl py-3">
-              <div class="text-center mx-auto" style="max-width: 600px;">
-				  <img id="imgtest" alt="Question Image">
-				  <div id="question1"></div>
-				  <div id="choices"></div>
-				  <div id="results"></div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-		</div>
-	</div>
-	</div>-->
 
 	<!-- Keyvision Start -->
 	<div id="home" class="container-fluid p-0 mb-1 wow fadeIn">
@@ -130,56 +110,8 @@
 		</div>
 	</div>
 	<!-- keyvision End -->
-	<!-- <div class="ani" id="seq">
-								<img src="http://s23.postimage.org/t57meexkb/horse_1.png" id="pic1"/>
-								<img src="http://s23.postimage.org/i86apnasr/horse_2.png" id="pic2"/>
-								<img src="http://s23.postimage.org/6kc8v3lnv/horse_3.png" id="pic3" />
-								<img src="http://s23.postimage.org/w4ej1j71n/horse_4.png" id="pic4" />
-								<img src="http://s23.postimage.org/ddclrdch7/horse_5.png" id="pic5" />
-								<img src="http://s23.postimage.org/nbxkdulwr/horse_6.png" id="pic6" />
-								<img src="http://s23.postimage.org/phrv8cpd7/horse_7.png" id="pic7" />
-								<img src="http://s23.postimage.org/n1un88wob/horse_8.png" id="pic8"/>
-							</div>
-							<script>
-								var currentPic = 1;
-								var isScrolling = false;
-								
-								function showNextPic() {
-									var pic;
-									for (var i = 1; i < 9; i++) {
-										pic = document.getElementById("pic" + i);
-										if (i === currentPic) {
-											pic.style.display = "block";
-										} else {
-											pic.style.display = "none";
-										}
-									}
-									if (currentPic >= 8) {
-										currentPic = 1;
-									} else {
-										currentPic++;
-									}
-									isScrolling = false;
-								}
-							
-								function MouseWheel(e) {
-									if (!isScrolling) {
-										showNextPic();
-										isScrolling = true;
-										setTimeout(function() {
-											isScrolling = false;
-										}, 70); // 调整此处的延迟时间以控制图像切换速度
-									}
-								}
-							
-								/* Firefox event registration */
-								if (document.addEventListener) {
-									document.addEventListener("DOMMouseScroll", MouseWheel, false);
-								}
-								window.onmousewheel = document.onmousewheel = MouseWheel; // IE/Opera/Chrome
-							</script>
-							</div>-->
 	
+
 	<!-- proc Start -->
 	<div id="life" class="container-xxl py-4">
 		<div class="container">
@@ -275,12 +207,13 @@
 	</div>
 	<!-- proc End -->
 
-	<!-- knowl -->
+	<!-- knowledge -->
 	<div class="container-xxl py-4">
 		<div class="container">
 		  <div class="text-center mx-auto" style="max-width: 1000px; height: auto;">
 			<h1 class="mb-2">不同茶種有不同的風味與特色</h1>
-			<p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?</p>
+			<div class="mb-3"><p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam enim vel veritatis natus quos necessitatibus! Incidunt dolore sequi repudiandae! Beatae quis sint vel, praesentium delectus magnam numquam deleniti dolor illum?<br></p>
+			<a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a></div>
 			<div id="type" class="slider">
 			  <div class="slide-track" id="slideTrack">
 				<%
@@ -327,10 +260,9 @@
 			  </div>
 			</div>
 		  </div>			  
-		  <a href="knowl.jsp" id="knowlbtn" class="btn btn-primary">看更多</a>
 		</div>
 	  </div>
-	<!-- knowl -->
+	<!-- knowledge -->
 
 	<!-- fun -->
 	<div class="container-xxl py-4">
@@ -402,13 +334,8 @@
 				<a href="#"><i class="fa fa-github"></i></a>
 			</div>
 		</div>
-		<!-- Copyright -->
-			<p id="count" style="margin-top: 1rem;"></p>
-		<!-- Copyright -->
 	</footer>
 	<!-- footer -->
-	
-	
 
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -421,6 +348,6 @@
 
 	<!-- Template Javascript -->
 	<script src="js/main.js"></script>
-	<script src="js/test.js"></script>
 </body>
+
 </html>

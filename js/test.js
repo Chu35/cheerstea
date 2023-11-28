@@ -1,97 +1,117 @@
-function calculateScore() {
-  var q1 = document.querySelector('input[name="q1"]:checked').value;
-  var q2 = document.querySelector('input[name="q2"]:checked').value;
-  var q3 = document.querySelector('input[name="q3"]:checked').value;
-  var q4 = document.querySelector('input[name="q4"]:checked').value;
+//test 
+var questions = [
+      {
+        question: "1：忙碌了一週，周末的早晨你會？",
+        choices: ["早起幹活", "睡到餓醒"],
+		scores: [1, 3],
+		answered: false,
+		imgtest: "img/t1-1.png"
+      },
+      {
+        question: "2：肚子餓了，早餐你會？",
+        choices: ["叫外送", "自己煮", "懶得吃"],
+		scores: [1, 2, 3],
+		answered: false,
+		imgtest: "img/t2.png"
+      },
+      {
+        question: "3：手機響了，你覺得是誰？",
+        choices: ["垃圾詐騙電話", "朋友揪出門", "同事找你代班"],
+		scores: [1, 2, 3],
+		answered: false,
+		imgtest:"img/t3.png"
+      },
+      {
+        question: "4：出門被鳥屎砸到，你會？",
+        choices: ["默默清理", "發限時動態", "幸運之神降落，趕快買張樂透"],
+		scores: [1, 2, 3],
+		answered: false,
+		imgtest:"img/t4.png"
+      }
+    ];
 
-  var score = parseInt(q1) + parseInt(q2) + parseInt(q3)+ parseInt(q4);
+    var currentQuestion = 0;
+    var answers = [];
 
-  showResult(score);
-}
+    function displayQuestion() {
+      var questionContainer = document.getElementById('question1');
+      questionContainer.innerHTML = questions[currentQuestion].question;
 
-function restartQuiz() {
-  var resultDiv = document.getElementById("result");
+      var imageContainer = document.getElementById('imgtest');
+      imageContainer.src = questions[currentQuestion].imgtest;
 
-  // 隱藏結果區塊
-  resultDiv.classList.add("hidden");
+      var choicesContainer = document.getElementById('choices');
+      choicesContainer.innerHTML = '';
 
-  // 重設測驗表單
-  document.getElementById("quiz").reset();
-}
+      for (var i = 0; i < questions[currentQuestion].choices.length; i++) {
+        var choice = document.createElement('button');
+        choice.textContent = questions[currentQuestion].choices[i];
+        choice.onclick = selectAnswer;
+        choicesContainer.appendChild(choice);
+      }
 
-function submitForm() {
-  // 獲取問題答案
-  var q1 = document.querySelector('input[name="q1"]:checked').value;
-  var q2 = document.querySelector('input[name="q2"]:checked').value;
-  var q3 = document.querySelector('input[name="q3"]:checked').value;
-  var q4 = document.querySelector('input[name="q4"]:checked').value;
-
-  // 計算測驗結果
-  var result = parseInt(q1) + parseInt(q2) + parseInt(q3) + parseInt(q4);
-
-  // 根據測驗結果導向不同頁面
-  if (result <= 5) {
-    var choice = window.confirm("你的測驗結果是...，確定要繼續前往嗎？");
-    if (choice) {
-      window.location.href = "gt.html#life";
+      var backButton = document.getElementById('back');
+      if (currentQuestion === 0) {
+        backButton.style.display = 'none';
+      } else {
+        backButton.style.display = 'inline-block';
+      }
     }
-  } else if (result >= 6) {
-    var choice = window.confirm("你的測驗結果是...\n第二行文字");
-    if (choice) {
-      window.location.href = "rt.html#life";
+
+    function selectAnswer(event) {
+      var selectedChoice = event.target.textContent;
+      var selectedScore = questions[currentQuestion].scores[questions[currentQuestion].choices.indexOf(selectedChoice)];
+      answers[currentQuestion] = selectedScore;
+
+      currentQuestion++;
+
+      if (currentQuestion < questions.length) {
+        displayQuestion();
+      } else {
+        showResults();
+      }
     }
+
+    function goBack() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        displayQuestion();
+      }
+    }
+
+    function showResults() {
+      var score = calculateScore();
+      var iconClass = '';
+
+      var iconPath = ''; // 假設這是本地圖標的基本路徑
+
+      if (score >= 3 && score <= 5) {
+          iconPath = 'img/4in1.ico'; 
+      } else if (score >= 6 && score <= 8) {
+          iconPath = 'img/4in2.ico'; 
+      } else if (score >= 9 && score <= 11) {
+          iconPath = 'img/4in3.ico'; 
+      } else {
+          iconPath = 'img/4in4.ico';
+      }
+
+      var iconContainer = document.getElementById('user-icon');
+      iconContainer.innerHTML = '<img src="' + iconPath + '" alt="Icon">';
+      // 關閉模擬框
+      var modal = document.getElementById('exampleModaltest');
+      if (modal) {
+          $(modal).modal('hide');
+      }
   }
+    
 
-  // 在最後一題顯示提交按鈕
-  if (questionIndex === numQuestions) {
-    document.getElementById("submit-btn").style.display = "block";
-  }
-}
+    function calculateScore() {
+      var totalScore = 0;
+      for (var i = 0; i < answers.length; i++) {
+        totalScore += answers[i];
+      }
+      return totalScore;
+    }
+ displayQuestion();
 
-
-
-var questionIndex = 1; // start with question 1
-var numQuestions = 4; // total number of questions
-
-// hide all questions except the first one
-for (var i = 2; i <= numQuestions; i++) {
-  var questionElem = document.getElementById('question-' + i);
-  if (questionElem) {
-    questionElem.style.display = 'none';
-  }
-}
-
-// add click event listener to the next button
-var nextBtn = document.getElementById('next-btn');
-var submitBtn = document.getElementById('submit-btn'); // get the submit button
-
-nextBtn.addEventListener('click', function() {
-  // hide current question
-  var currentQuestion = document.getElementById('question-' + questionIndex);
-  currentQuestion.style.display = 'none';
-  
-  // show next question
-  questionIndex++;
-  if (questionIndex <= numQuestions) {
-    var nextQuestion = document.getElementById('question-' + questionIndex);
-    nextQuestion.style.display = 'block';
-  }
-  
-  // hide next button if we're on the last question
-  if (questionIndex === numQuestions) {
-    nextBtn.style.display = 'none';
-    submitBtn.style.display = 'inline'; // show the submit button
-  }
-});
-
-
-  //心理測驗按鈕
-	let btn=document.querySelector("#test");
-  let infoModal=document.querySelector("#infoModal");
-  let close=document.querySelector("#close");
-  btn.addEventListener("click", function(){
-  infoModal.showModal();
-})
-close.addEventListener("click", function(){
-  infoModal.close();
-})
+ 
